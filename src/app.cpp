@@ -430,13 +430,6 @@ void header(bool connected, serial::State st) {
                        : st == serial::State::Error   ? "Error"
                                                        : "Not connected";
     float tw = ImGui::CalcTextSize(text).x;
-    // subtitle only when it fits beside the status
-    const char* sub = "WASM \xc2\xb7 Dear ImGui \xc2\xb7 Web Serial API";
-    float left = ImGui::GetContentRegionAvail().x - ImGui::GetItemRectSize().x - 6;
-    if (left - ImGui::CalcTextSize(sub).x > tw + 40) {
-        ImGui::SameLine(0, 6);
-        ImGui::TextColored(V(DIM), "%s", sub);
-    }
     ImGui::SameLine();
     ImGui::SetCursorPosX(ImGui::GetCursorPosX() + std::max(0.f, ImGui::GetContentRegionAvail().x - tw));
     ImVec2 c = ImGui::GetCursorScreenPos();
@@ -841,7 +834,7 @@ void init(ImFont*, ImFont* monoFont) {
     fontMono = monoFont;
     applyStyle();
     loadSettings();
-    sysLine("Serial Tool (WASM) ready. Click \"Connect...\" and pick a COM port.");
+    sysLine("Serial Tool ready. Click \"Connect...\" and pick a COM port.");
 }
 
 void frame() {
