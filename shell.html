@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Serial Tool (WASM)</title>
+<link rel="icon" href="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='13' fill='%230f1a30' stroke='%2336527a' stroke-width='2'/%3E%3Ctext x='20' y='27' font-family='Arial' font-weight='700' font-size='19' fill='%2339d353' text-anchor='middle'%3ETX%3C/text%3E%3Cpath d='M40 15 l10 6 l-10 6 z' fill='%2339d353'/%3E%3Ctext x='44' y='52' font-family='Arial' font-weight='700' font-size='19' fill='%2338bdf8' text-anchor='middle'%3ERX%3C/text%3E%3Cpath d='M24 41 l-10 6 l10 6 z' fill='%2338bdf8'/%3E%3C/svg%3E" />
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0a0e16; }
+  canvas { display: block; position: fixed; inset: 0; width: 100vw; height: 100vh; outline: none; }
+  #loading {
+    position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+    color: #7c8aa5; font: 13px "Segoe UI", system-ui, sans-serif;
+  }
+</style>
+</head>
+<body>
+<div id="loading">Loading Serial Tool…</div>
+<canvas id="canvas" tabindex="-1" oncontextmenu="event.preventDefault()"></canvas>
+<script>
+  var Module = {
+    canvas: document.getElementById('canvas'),
+    print: (t) => console.log(t),
+    printErr: (t) => console.error(t),
+  };
+</script>
+{{{ SCRIPT }}}
+</body>
+</html>
